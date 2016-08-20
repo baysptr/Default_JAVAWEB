@@ -1,0 +1,89 @@
+<h3>Berita Acara Serah Terima</h3>
+
+<div class="panel panel-default" ng-form="formReport">
+    <div class="panel-body">
+        <div class="form-group col-md-12">
+            <div class="col-md-1" >
+                <label class="control-label" for="kapal">Kapal</label>
+            </div>
+            <div class="col-md-5" style="padding-left: 15px; padding-right: 15px" ng-class="{
+                                        error: formPaspor.pelanggan.$invalid
+                                    }">
+                <div class=" input-group">
+                    <input id="kapal" name="kapal" type="text" class="form-control" placeholder="Pilih kapal ..." ng-model="currentRecord.kapal.nama_kapal" ng-disabled="true" required>
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="lookupKapal()"><i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+                <span style="float:right; color:white" class="help-block label label-danger" ng-show="formReport.kapal.$error.required">
+                    Harus Diisi
+                </span>
+            </div>
+            <div class="col-md-1 center">
+                <label class="control-label" for="tglBerangkat">Berangkat: </label>
+            </div>
+            <div class="col-md-2 center">
+                <label class="control-label" for="tglBerangkat">{{currentRecord.kapal.tgl_berangkat| date:'dd/MM/yyyy'}}</label>
+            </div>
+            <div class="col-md-3 center">
+                <input type="checkbox" name="showCompany" ng-model="showCompany">Tampilkan Nama Trans Papua
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <div class="col-md-1">
+                <label class="control-label" for="kapal">Tujuan</label>
+            </div>
+            <div class="col-md-5" >
+                <input id="tujuan" name="tujuan" type="text" class="form-control" ng-model="currentRecord.kapal.kota" ng-disabled="true">
+            </div>
+            <div class="col-md-1 center">
+                <label class="control-label" >Filter :</label>
+            </div>
+            <div class="col-md-3" >
+                <input id="cari" name="cari" type="text" class="form-control" ng-model="cari">
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="form-group col-md-12">
+    <div class="col-md-1">
+        <label class="control-label" for="kapal">Kontainer</label>
+    </div>
+    <div class="col-md-11">
+        <table class="table table-striped table-bordered table-hover" id="example">
+            <thead>
+                <tr>
+                    <th >No</th>
+                    <th >Merk</th>
+                    <th >Toko</th>
+                    <th >Nomor</th>
+                    <th >&nbsp</th>
+                </tr>
+            </thead>   
+            <tbody>
+                <tr ng-repeat="x in listMerk| filter:cari">
+                    <td style="vertical-align: right">
+                        {{$index + 1}}
+                    </td>
+                    <td >
+                        {{x.merk}}
+                    </td>
+                    <td >
+                        {{x.toko}}
+                    </td>
+                    <td >
+                        {{x.no_bast}}
+                    </td>
+                    <td style="text-align: center">
+                        <a href="" ng-click="tampilkan('pdf', x)" class="glyphicon glyphicon-print" data-toggle="tooltip" tooltip="Print pdf"></a>
+                        <a href="" ng-click="tampilkan('xls', x)" class="glyphicon glyphicon-export" data-toggle="tooltip" tooltip="Export Excel"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+</div>

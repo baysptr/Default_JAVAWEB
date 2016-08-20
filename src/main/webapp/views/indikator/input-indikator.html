@@ -1,0 +1,46 @@
+<h3>Input Indikator</h3>
+<div class="portlet box blue">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i>Laporan Detail Waktu
+        </div>
+    </div>
+    <div class="portlet-body col-md-12">
+        <div class="row">
+            <div class="col-md-3">
+                <label class="control-label">Bulan</label>
+            </div>
+            <div class="col-md-3" ng-class="{error: formModal.cmbBulan.$invalid}">
+                <ui-select ng-model="bulan.selected" theme="select2" style="min-width: 100%;" id="cmbBulan" name="cmbBulan" required>
+                    <ui-select-match placeholder="Pilih Bulan">{{$select.selected.nama}}</ui-select-match>
+                    <ui-select-choices repeat="x in listBulan| propsFilter: {nama: $select.search}">
+                        <div ng-bind-html="x.nama | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+                <span style="float:right; color:white" class="help-block label label-danger" ng-show="formModal.cmbBulan.$error.required">
+                    Harus Diisi
+                </span>
+            </div>
+            <div class="col-md-2">
+                <input class="form-control" type="number" ng-model="tahun" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <!--                <a href="{{printDetailWaktu()}}" target="_blank"><li class="btn btn-primary icon-print">Print</li></a>-->
+                <div class="btn-group">
+                    <button type="button" class="btn green">Export ke</button>
+                    <button type="button" class="btn green dropdown-toggle" data-toggle="dropdown"><i class="fa fa-angle-down"></i></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{bulan.selected ? printDetailWaktu('pdf') : ''}}" target="_blank">Pdf </a>
+                        </li>
+                        <li ng-show="ex2">
+                            <a href="{{bulan.selected ? printDetailWaktu('xls') : ''}}" target="_blank">Excel </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

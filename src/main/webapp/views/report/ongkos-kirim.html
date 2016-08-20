@@ -1,0 +1,36 @@
+<h3>Laporan Ongkos Kirim</h3>
+
+<div class="row">
+    <div class="col-md-1">
+        <label>Dari :</label>
+    </div>
+    <div class="col-md-3">
+        <p class="input-group">
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="tanggal1" is-open="opened1" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open1($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </p>
+    </div>
+    <div class="col-md-1">
+        <label>Sampai :</label>
+    </div>
+    <div class="col-md-3">
+        <p class="input-group">
+            <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="tanggal2" is-open="opened2" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </p>
+    </div>
+    <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            Export To
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a ng-click="exportTo('pdf')">Pdf</a></li>
+            <li><a ng-click="exportTo('xls')">Excel</a></li>
+        </ul>
+    </div>
+</div>

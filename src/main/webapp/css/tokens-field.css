@@ -1,0 +1,30 @@
+ng-tokens-field {
+    display: block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 2px 5px;
+}
+
+ng-tokens-field span.token {
+    display: inline-block;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 0px 5px;
+    margin-right: 5px;
+    font-size: 10px;
+    border-radius: 5px;
+    background-color:#c49fe0;
+}
+
+ng-tokens-field a {
+    margin-left: 5px;
+    cursor: pointer;
+    padding: 2px;
+    color: #fff;
+}
+
+ng-tokens-field input {
+    border: 0px;
+    outline: 0px;
+    width: 1px;
+}

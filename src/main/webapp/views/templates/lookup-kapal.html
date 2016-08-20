@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">×</button>
+    <h3>Lookup Kapal</h3>
+</div>
+<div class="modal-body">
+    <div class="col-md-12 input-group custom-search-form wrapper">
+        <input type="text" class="form-control" ng-model="search" placeholder="Cari item" autofocus>
+    </div>
+    <div class="well-large">
+        <div class="box-content">
+            <div when-scrolled="loadMore()" style="height: 360px; overflow: scroll;" >
+                <table class="table table-striped table-bordered table-hover" fixed-header>
+                    <thead>
+                        <tr>
+                            <th>Kapal</th>
+                            <th>Tgl. Berangkat</th>
+                            <th>Tujuan</th>
+                        </tr>
+                    </thead>
+
+                    <tbody >
+                        <tr ng-repeat="x in listData| filter:search | limitTo:totalDisplayed" ng-click="pilih(x)">
+                            <td>{{x.nama_kapal}}</td>
+                            <td>{{x.tgl_berangkat|date:'dd/MM/yyyy'}}</td>
+                            <td>{{x.kota}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer custom-modal">
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
